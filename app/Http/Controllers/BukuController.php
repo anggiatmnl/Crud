@@ -14,7 +14,8 @@ class BukuController extends Controller
      */
     public function index()
     {
-        //
+        $buku = Buku::all();
+        return view('buku.index', ['buku' => $buku]);
     }
 
     /**
@@ -88,6 +89,9 @@ class BukuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $buku = Buku::find($id);
+        $buku->delete();
+   
+        return redirect('/')->with('success', 'Books has been deleted Successfully');
     }
 }

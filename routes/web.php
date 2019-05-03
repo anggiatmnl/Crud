@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('buku', 'BukuController');
 
+Route::get('/', 'BukuController@index');
 Route::get('/create', 'BukuController@create');
 
 Route::post('/input', 'BukuController@store');
+Route::get('/view/{id}', 'BukuController@view');
